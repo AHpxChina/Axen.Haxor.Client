@@ -11,6 +11,7 @@ import me.wavelength.baseclient.event.events.MouseClickEvent;
 import me.wavelength.baseclient.module.modules.combat.Friends;
 import me.wavelength.baseclient.module.modules.movement.Fly;
 import me.wavelength.baseclient.module.modules.movement.Sprint;
+import me.wavelength.baseclient.module.modules.movement.Step;
 import me.wavelength.baseclient.module.modules.movement.TestModule;
 import me.wavelength.baseclient.module.modules.render.XRay;
 import me.wavelength.baseclient.module.modules.semi_hidden.AdvancedTabGui;
@@ -48,7 +49,8 @@ public class ModuleManager extends EventListener {
 				new AdvancedTabGui(),
 				new TabGui(),
 				new ClickGui(),
-				new Sprint());
+				new Sprint(),
+				new Step());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {
