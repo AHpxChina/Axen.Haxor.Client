@@ -1,6 +1,7 @@
 package me.wavelength.baseclient.module;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import me.wavelength.baseclient.BaseClient;
@@ -9,6 +10,7 @@ import me.wavelength.baseclient.event.events.KeyPressedEvent;
 import me.wavelength.baseclient.event.events.MouseClickEvent;
 import me.wavelength.baseclient.module.modules.combat.Friends;
 import me.wavelength.baseclient.module.modules.movement.Fly;
+import me.wavelength.baseclient.module.modules.movement.Sprint;
 import me.wavelength.baseclient.module.modules.movement.TestModule;
 import me.wavelength.baseclient.module.modules.render.XRay;
 import me.wavelength.baseclient.module.modules.semi_hidden.AdvancedTabGui;
@@ -33,15 +35,20 @@ public class ModuleManager extends EventListener {
 		modules.add(module);
 	}
 
+	public void registerModule(Module... modules){
+		this.modules.addAll(Arrays.asList(modules));
+	}
+
 	public void registerModules() {
-		registerModule(new Friends());
-		registerModule(new Fly());
-		registerModule(new TestModule());
-		registerModule(new XRay());
-		registerModule(new NameProtect());
-		registerModule(new AdvancedTabGui());
-		registerModule(new TabGui());
-		registerModule(new ClickGui());
+		registerModule(new Friends(),
+				new Fly(),
+				new TestModule(),
+				new XRay(),
+				new NameProtect(),
+				new AdvancedTabGui(),
+				new TabGui(),
+				new ClickGui(),
+				new Sprint());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {
@@ -63,7 +70,7 @@ public class ModuleManager extends EventListener {
 	}
 
 	public List<Module> getModules(int key) {
-		List<Module> modules = new ArrayList<Module>();
+		List<Module> modules = new ArrayList<>();
 		for (int i = 0; i < this.modules.size(); i++) {
 			if (this.modules.get(i).getKey() == key)
 				modules.add(this.modules.get(i));

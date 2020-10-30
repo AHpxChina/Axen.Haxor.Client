@@ -17,5 +17,4 @@ public class ClickGui extends Module {
 		mc.displayGuiScreen(BaseClient.instance.getClickGui());
 		super.toggle();
 	}
-
 }

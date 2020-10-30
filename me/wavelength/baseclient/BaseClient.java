@@ -39,9 +39,9 @@ public class BaseClient {
 	 * @formatter:on
 	 **/
 
-	private final String clientName = "BaseClient";
-	private final String clientVersion = "0.1";
-	private final String author = "WaveLength";
+	private final String clientName = "Axen.Haxor.Client";
+	private final String clientVersion = "1.0";
+	private final String author = "AHpx";
 
 	public static BaseClient instance;
 
