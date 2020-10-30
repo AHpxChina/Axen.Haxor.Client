@@ -14,7 +14,6 @@ import me.wavelength.baseclient.module.modules.movement.Sprint;
 import me.wavelength.baseclient.module.modules.movement.Step;
 import me.wavelength.baseclient.module.modules.movement.TestModule;
 import me.wavelength.baseclient.module.modules.render.XRay;
-import me.wavelength.baseclient.module.modules.semi_hidden.AdvancedTabGui;
 import me.wavelength.baseclient.module.modules.semi_hidden.ClickGui;
 import me.wavelength.baseclient.module.modules.semi_hidden.TabGui;
 import me.wavelength.baseclient.module.modules.world.NameProtect;
@@ -46,7 +45,6 @@ public class ModuleManager extends EventListener {
 				new TestModule(),
 				new XRay(),
 				new NameProtect(),
-				new AdvancedTabGui(),
 				new TabGui(),
 				new ClickGui(),
 				new Sprint(),

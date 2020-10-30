@@ -21,7 +21,6 @@ import me.wavelength.baseclient.module.Category;
 import me.wavelength.baseclient.module.Module;
 import me.wavelength.baseclient.module.ModuleManager;
 import me.wavelength.baseclient.module.ModuleSettings;
-import me.wavelength.baseclient.module.modules.semi_hidden.AdvancedTabGui;
 import me.wavelength.baseclient.module.modules.semi_hidden.TabGui;
 import me.wavelength.baseclient.utils.Config;
 import me.wavelength.baseclient.utils.Integers;
@@ -62,9 +61,9 @@ public class TabGui1 extends EventListener {
 	/**
 	 * @return The current mode, 0 = default mode (ARROW KEYS), 1 = "Advanced" mode (MOUSE WHEEL (CAN BE BOUND) AND MOUSE CLICKS)
 	 */
-	private int getMode() {
-		return (BaseClient.instance.getModuleManager().getModule(AdvancedTabGui.class).isToggled() ? 1 : 0);
-	}
+//	private int getMode() {
+//		return 0;
+//	}
 
 	private List<Module> getModules() {
 		return moduleManager.getModules(Category.values()[currentCategory]);
@@ -275,8 +274,8 @@ public class TabGui1 extends EventListener {
 			return;
 		}
 
-		if (getMode() != 0)
-			return;
+//		if (getMode() != 0)
+//			return;
 
 		switch (event.getKey()) {
 		case Keyboard.KEY_UP: {
@@ -302,62 +301,62 @@ public class TabGui1 extends EventListener {
 		}
 	}
 
-	@Override
-	public void onMouseScroll(MouseScrollEvent event) {
-		if (getMode() != 1)
-			return;
+//	@Override
+//	public void onMouseScroll(MouseScrollEvent event) {
+//		if (getMode() != 1)
+//			return;
+//
+//		event.setCancelled(true);
+//
+//		switch (event.getDirection()) {
+//		case 120: {
+//			menuScroll(1);
+//			break;
+//		}
+//		case 240: {
+//			menuScroll(1);
+//			menuScroll(1);
+//		}
+//		case -120: {
+//			menuScroll(0);
+//			break;
+//		}
+//		case -240: {
+//			menuScroll(0);
+//			menuScroll(0);
+//			break;
+//		}
+//		default: {
+//			return;
+//		}
+//		}
+//	}
 
-		event.setCancelled(true);
-
-		switch (event.getDirection()) {
-		case 120: {
-			menuScroll(1);
-			break;
-		}
-		case 240: {
-			menuScroll(1);
-			menuScroll(1);
-		}
-		case -120: {
-			menuScroll(0);
-			break;
-		}
-		case -240: {
-			menuScroll(0);
-			menuScroll(0);
-			break;
-		}
-		default: {
-			return;
-		}
-		}
-	}
-
-	@Override
-	public void onMouseClick(MouseClickEvent event) {
-		if (getMode() != 1)
-			return;
-
-		switch (event.getButton()) {
-		case 1: {
-			menuInteract(0);
-			break;
-		}
-		case 0: {
-			menuInteract(1);
-			break;
-		}
-		case 4: {
-			if (!(indentation == 1))
-				break;
-
-			getCurrentModule().toggle();
-		}
-		default:
-			return;
-		}
-
-	}
+//	@Override
+//	public void onMouseClick(MouseClickEvent event) {
+//		if (getMode() != 1)
+//			return;
+//
+//		switch (event.getButton()) {
+//		case 1: {
+//			menuInteract(0);
+//			break;
+//		}
+//		case 0: {
+//			menuInteract(1);
+//			break;
+//		}
+//		case 4: {
+//			if (!(indentation == 1))
+//				break;
+//
+//			getCurrentModule().toggle();
+//		}
+//		default:
+//			return;
+//		}
+//
+//	}
 
 	private void renderCategories(Render2DEvent event) {
 		List<String> items = new ArrayList<String>();
