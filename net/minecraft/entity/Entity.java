@@ -5,6 +5,8 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
+import me.wavelength.baseclient.BaseClient;
+import me.wavelength.baseclient.module.modules.movement.SafeWalk;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
@@ -570,7 +572,7 @@ public abstract class Entity implements ICommandSender {
 			double d3 = x;
 			double d4 = y;
 			double d5 = z;
-			boolean flag = this.onGround && this.isSneaking() && this instanceof EntityPlayer;
+			boolean flag = this.onGround && (this.isSneaking() || BaseClient.instance.getModuleManager().getModule(SafeWalk.class).isToggled()) && this instanceof EntityPlayer;
 
 			if (flag) {
 				double d6;
