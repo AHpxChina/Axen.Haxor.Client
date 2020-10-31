@@ -12,13 +12,31 @@ import org.lwjgl.input.Keyboard;
 
 public class Sprint extends Module {
     public Sprint() {
-        super("Sprint", "Auto sprint when you move forward", 0 , Category.MOVEMENT, null);
+        super("Sprint", "Auto sprint when you move forward", 0 , Category.MOVEMENT);
     }
 
     @Override
     public void onUpdate(UpdateEvent event) {
-        if(!mc.thePlayer.isCollidedHorizontally && mc.thePlayer.moveForward > 0)
-            mc.thePlayer.setSprinting(true);
+        if (moduleSettings.getBoolean("MultiDir")){
+            if ((mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()
+                    || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking()) {
+                mc.thePlayer.setSprinting(true);
+            } else {
+                mc.thePlayer.setSprinting(false);
+            }
+        }
+        else{
+            if (mc.gameSettings.keyBindForward.isKeyDown() && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking()) {
+                mc.thePlayer.setSprinting(true);
+            } else {
+                mc.thePlayer.setSprinting(false);
+            }
+        }
+    }
+
+    @Override
+    public void setup() {
+        moduleSettings.addDefault("MultiDir", false);
     }
 
     @Override
