@@ -8,6 +8,7 @@ import me.wavelength.baseclient.BaseClient;
 import me.wavelength.baseclient.event.EventListener;
 import me.wavelength.baseclient.event.events.KeyPressedEvent;
 import me.wavelength.baseclient.event.events.MouseClickEvent;
+import me.wavelength.baseclient.module.modules.Player.Nofall;
 import me.wavelength.baseclient.module.modules.combat.Friends;
 import me.wavelength.baseclient.module.modules.movement.*;
 import me.wavelength.baseclient.module.modules.render.FPSpoof;
@@ -52,7 +53,8 @@ public class ModuleManager extends EventListener {
 				new Fullbright(),
 				new AutoWalk(),
 				new SafeWalk(),
-				new FastPlace());
+				new FastPlace(),
+				new Nofall());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {

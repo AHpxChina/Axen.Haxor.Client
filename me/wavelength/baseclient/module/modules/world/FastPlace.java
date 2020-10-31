@@ -14,11 +14,6 @@ public class FastPlace extends Module {
     }
 
     @Override
-    public void setup() {
-        moduleSettings.addDefault("Delay", 1);
-    }
-
-    @Override
     public void onUpdate(UpdateEvent event) {
         mc.rightClickDelayTimer = 0;
     }
