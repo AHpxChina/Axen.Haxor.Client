@@ -9,10 +9,10 @@ import me.wavelength.baseclient.event.EventListener;
 import me.wavelength.baseclient.event.events.KeyPressedEvent;
 import me.wavelength.baseclient.event.events.MouseClickEvent;
 import me.wavelength.baseclient.module.modules.combat.Friends;
+import me.wavelength.baseclient.module.modules.movement.AutoWalk;
 import me.wavelength.baseclient.module.modules.movement.Fly;
 import me.wavelength.baseclient.module.modules.movement.Sprint;
 import me.wavelength.baseclient.module.modules.movement.Step;
-import me.wavelength.baseclient.module.modules.movement.TestModule;
 import me.wavelength.baseclient.module.modules.render.FPSpoof;
 import me.wavelength.baseclient.module.modules.render.Fullbright;
 import me.wavelength.baseclient.module.modules.render.XRay;
@@ -44,7 +44,6 @@ public class ModuleManager extends EventListener {
 	public void registerModules() {
 		registerModule(new Friends(),
 				new Fly(),
-				new TestModule(),
 				new XRay(),
 				new NameProtect(),
 				new TabGui(),
@@ -52,7 +51,8 @@ public class ModuleManager extends EventListener {
 				new Sprint(),
 				new Step(),
 				new FPSpoof(),
-				new Fullbright());
+				new Fullbright(),
+				new AutoWalk());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {

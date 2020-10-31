@@ -18,19 +18,11 @@ public class Sprint extends Module {
     @Override
     public void onUpdate(UpdateEvent event) {
         if (moduleSettings.getBoolean("MultiDir")){
-            if ((mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()
-                    || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking()) {
-                mc.thePlayer.setSprinting(true);
-            } else {
-                mc.thePlayer.setSprinting(false);
-            }
+            mc.thePlayer.setSprinting((mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()
+                    || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking());
         }
         else{
-            if (mc.gameSettings.keyBindForward.isKeyDown() && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking()) {
-                mc.thePlayer.setSprinting(true);
-            } else {
-                mc.thePlayer.setSprinting(false);
-            }
+            mc.thePlayer.setSprinting(mc.gameSettings.keyBindForward.isKeyDown() && !mc.thePlayer.isUsingItem() && !mc.thePlayer.isSneaking());
         }
     }
 
