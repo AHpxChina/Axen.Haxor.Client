@@ -278,26 +278,26 @@ public class TabGui1 extends EventListener {
 //			return;
 
 		switch (event.getKey()) {
-		case Keyboard.KEY_UP: {
-			menuScroll(1);
-			break;
-		}
-		case Keyboard.KEY_DOWN: {
-			menuScroll(0);
-			break;
-		}
-		case Keyboard.KEY_BACK:
-		case Keyboard.KEY_LEFT: {
-			menuInteract(0);
-			break;
-		}
-		case Keyboard.KEY_RIGHT: {
-			menuInteract(1);
-			break;
-		}
-		default: {
-			return;
-		}
+			case Keyboard.KEY_UP: {
+				menuScroll(1);
+				break;
+			}
+			case Keyboard.KEY_DOWN: {
+				menuScroll(0);
+				break;
+			}
+			case Keyboard.KEY_BACK:
+			case Keyboard.KEY_LEFT: {
+				menuInteract(0);
+				break;
+			}
+			case Keyboard.KEY_RIGHT: {
+				menuInteract(1);
+				break;
+			}
+			default: {
+				return;
+			}
 		}
 	}
 

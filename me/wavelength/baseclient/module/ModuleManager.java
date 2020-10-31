@@ -14,6 +14,7 @@ import me.wavelength.baseclient.module.modules.movement.Sprint;
 import me.wavelength.baseclient.module.modules.movement.Step;
 import me.wavelength.baseclient.module.modules.movement.TestModule;
 import me.wavelength.baseclient.module.modules.render.FPSpoof;
+import me.wavelength.baseclient.module.modules.render.Fullbright;
 import me.wavelength.baseclient.module.modules.render.XRay;
 import me.wavelength.baseclient.module.modules.semi_hidden.ClickGui;
 import me.wavelength.baseclient.module.modules.semi_hidden.TabGui;
@@ -50,7 +51,8 @@ public class ModuleManager extends EventListener {
 				new ClickGui(),
 				new Sprint(),
 				new Step(),
-				new FPSpoof());
+				new FPSpoof(),
+				new Fullbright());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {
