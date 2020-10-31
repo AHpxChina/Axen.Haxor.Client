@@ -15,6 +15,7 @@ import me.wavelength.baseclient.module.modules.render.Fullbright;
 import me.wavelength.baseclient.module.modules.render.XRay;
 import me.wavelength.baseclient.module.modules.semi_hidden.ClickGui;
 import me.wavelength.baseclient.module.modules.semi_hidden.TabGui;
+import me.wavelength.baseclient.module.modules.world.FastPlace;
 import me.wavelength.baseclient.module.modules.world.NameProtect;
 
 public class ModuleManager extends EventListener {
@@ -50,7 +51,8 @@ public class ModuleManager extends EventListener {
 				new FPSpoof(),
 				new Fullbright(),
 				new AutoWalk(),
-				new SafeWalk());
+				new SafeWalk(),
+				new FastPlace());
 	}
 
 	public Module getModule(Class<? extends Module> clasz) {
