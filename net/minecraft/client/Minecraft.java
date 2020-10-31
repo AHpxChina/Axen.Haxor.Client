@@ -28,6 +28,7 @@ import java.util.concurrent.FutureTask;
 
 import javax.imageio.ImageIO;
 
+import me.wavelength.baseclient.module.modules.render.FPSpoof;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
@@ -1091,7 +1092,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
 		this.field_181543_z = k;
 
 		while (getSystemTime() >= this.debugUpdateTime + 1000L) {
-			debugFPS = this.fpsCounter;
+			if (BaseClient.instance.getModuleManager().getModule(FPSpoof.class).isToggled()){
+				debugFPS = this.fpsCounter * BaseClient.instance.getModuleManager().getModule(FPSpoof.class).getModuleSettings().getInt("Multiple");
+			}
+			else {
+				debugFPS = this.fpsCounter;
+			}
+
 			this.debug = String.format("%d fps (%d chunk update%s) T: %s%s%s%s%s", new Object[] { Integer.valueOf(debugFPS), Integer.valueOf(RenderChunk.renderChunksUpdated), RenderChunk.renderChunksUpdated != 1 ? "s" : "", (float) this.gameSettings.limitFramerate == GameSettings.Options.FRAMERATE_LIMIT.getValueMax() ? "inf" : Integer.valueOf(this.gameSettings.limitFramerate), this.gameSettings.enableVsync ? " vsync" : "", this.gameSettings.fancyGraphics ? "" : " fast", this.gameSettings.clouds == 0 ? "" : (this.gameSettings.clouds == 1 ? " fast-clouds" : " fancy-clouds"), OpenGlHelper.useVbo() ? " vbo" : "" });
 			RenderChunk.renderChunksUpdated = 0;
 			this.debugUpdateTime += 1000L;
